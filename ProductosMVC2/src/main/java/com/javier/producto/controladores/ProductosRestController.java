@@ -1,5 +1,9 @@
 package com.javier.producto.controladores;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,5 +27,16 @@ public class ProductosRestController {
 		
 	      }
 
+    @RequestMapping(method=RequestMethod.GET,
+			value="/buscar/{texto}")
+	public @ResponseBody List<TiendaProducto> 
+				buscar(@PathVariable String texto){
 
+		Map<String, Object> params=new HashMap();
+		params.put("texto", "%"+texto+"%");
+		List<TiendaProducto> l=daoProducto.find("producto.buscador", params);
+		return l;
+
+
+	}
 }

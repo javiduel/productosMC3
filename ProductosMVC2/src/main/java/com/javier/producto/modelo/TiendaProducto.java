@@ -4,15 +4,19 @@ package com.javier.producto.modelo;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,6 +27,8 @@ import javax.persistence.Table;
 @Table(name="tienda_producto"
     ,catalog="teide2014"
 )
+@NamedQuery(name="producto.buscador",
+query="from TiendaProducto e where e.nombre like :texto")
 public class TiendaProducto  implements java.io.Serializable {
 
 

@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-Nombre: ${TiendaProducto.nombre}<br/>
-Precio: ${TiendaProducto.precio}<br/>
-Existencias: ${TiendaProducto.existencias}<br/>
-Categoria: ${TiendaProducto.TiendaCategoria.nombre}<br/>
+Nombre: ${producto.nombre}<br/>
+Precio: ${producto.precio}<br/>
+Existencias: ${producto.existencias}<br/>
+Categoria: ${producto.tiendaCategoria.nombre}<br/>
 </body>
 </html>

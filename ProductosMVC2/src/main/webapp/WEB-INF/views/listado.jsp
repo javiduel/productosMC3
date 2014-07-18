@@ -12,18 +12,56 @@
 </head>
 
 <body>
-<table>
-<c:forEach items="${productos}" var="TiendaProducto">
+Buscar:<input type="text" id="txtBuscar" 
+				placeholder="Pon tu busqueda">
+	   <input type="button" id="btnBuscar" value="buscar" onclick="buscar()"> 
+<table id="tblDatos">
+<c:forEach items="${productos }" var="producto">
  <tr>
-   <td>${TiendaProducto.nombre }</td>
-   <td>${TiendaProducto.precio }</td>
-  <td><a href="detalle.html?id=${TiendaProducto.idProducto}"> Ver detalle</a></td>
-  <td><a href="#" id="lnkDetalle" onclick="evento(${TiendaProducto.idProducto})"> Detalle Ajax</a></td>
+   <td>${producto.nombre }</td>
+   <td>${producto.precio }</td>
+  <td><a href="detalle.html?id=${producto.idProducto}"> Ver detalle</a></td>
+  <td><a href="#" id="lnkDetalle" onclick="evento(${producto.idProducto})"> Detalle Ajax</a></td>
   </tr>
    </c:forEach>
 </table>
 <div id="divDetalle"></div>
 <script type="text/javascript">
+function buscar(){
+	var tx=$("#txtBuscar").val();
+	var url="producto/buscar/"+tx;	
+
+	$.get(url,function(res){
+
+		var tabla=$("#tblDatos");
+
+		$("#tblDatos tr").each(function(){
+				$(this).remove();
+
+			});
+
+
+
+		for(var i=0;i<res.length;i++){
+			var h="<tr>";
+			h+="<td>"+res[i].nombre+"</td>";
+			h+="<td>"+res[i].precio+"</td>";
+			h+="<td><a href='detalle.html?id="+
+					res[i].idProducto+"'>Detalle</a>";
+			h+="<a href='#' onclick='evento("+
+				res[i].idProducto+")'>Detalle ajax</a></td>";
+			h+="</tr>";	
+			tabla.append(h);
+			}
+
+
+
+
+
+		});
+
+}
+
 function evento(id){
   	var url="producto/"+id;
   	$.get(url,function(res){
@@ -31,7 +69,7 @@ var resultado="<ul>";
    resultado+="<li>"+ res.nombre+"<li>";
    resultado+="<li>"+ res.precio+"<li>";
    resultado+="<li>"+ res.existencias+"<li>";
-   resultado+="<li>"+ res.TiendaCategoria.nombre+"<li>";
+   resultado+="<li>"+ res.tiendaCategoria.nombre+"<li>";
    resultado+="<ul>";
    $("#divDetalle").html(resultado);
   	});

@@ -32,7 +32,7 @@ public class ProductosController {
 	public String detalle(Model modelo, HttpServletRequest request){
 		int id=Integer.parseInt(request.getParameter("id"));//como me esta pidiendo un entero recupero los parametros y los convierto en enteros
 		TiendaProducto e=daoProducto.get(TiendaProducto.class, id);//captura los datos y 
-		modelo.addAttribute("productos", e);//añadir ese atributo a la vita  cogiendo los datos para convertirlos en objetos y se envía ya que el controlador necesita objetos
+		modelo.addAttribute("producto", e);//añadir ese atributo a la vita  cogiendo los datos para convertirlos en objetos y se envía ya que el controlador necesita objetos
 		return "detalle";
      }
 	/***detalle segunda forma*************************************/	
