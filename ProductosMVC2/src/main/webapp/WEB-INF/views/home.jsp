@@ -6,9 +6,10 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Bienvenido a la tienda!  
 </h1>
-
+<td><a href="listado.html"> Ver listadoProductos</a></td>
+<td><a href="listadoCategoria.html"> Ver listadoCategoria</a></td>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>

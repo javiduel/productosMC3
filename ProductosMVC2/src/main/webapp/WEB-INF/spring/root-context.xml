@@ -74,6 +74,9 @@ value="jdbc:mysql://luisgilpruebas.cloudapp.net:3306/teide2014"/>
  <bean id="daoProducto" class="com.javier.producto.repositorios.RepositorioProducto">
      <property name="sessionFactory" ref="sessionFactory" />
 </bean>
+ <bean id="daoCategoria" class="com.javier.producto.repositorios.RepositorioCategoria">
+     <property name="sessionFactory" ref="sessionFactory" />
+</bean>
  <tx:annotation-driven transaction-manager="txManager"  
                        proxy-target-class="true"/>
  
