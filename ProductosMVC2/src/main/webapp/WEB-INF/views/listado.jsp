@@ -22,13 +22,46 @@ Buscar:<input type="text" id="txtBuscar"
    <td>${producto.precio }</td>
   <td><a href="detalle.html?id=${producto.idProducto}"> Ver detalle</a></td>
   <td><a href="#" id="lnkDetalle" onclick="evento(${producto.idProducto})"> Detalle Ajax</a></td>
+  <td><a href="#" id="lnkBorrar" onclick="borrar(${producto.idProducto})">Borrar</a></td>
   </tr>
    </c:forEach>
 </table>
 <div id="divDetalle"></div>
 <script type="text/javascript">
+function borrar(id){
+
+	var datos={idProducto:id};
+
+	var datosPasar=JSON.stringify(datos);
+
+	$.ajax(
+			"producto",{
+				data:datosPasar,
+				method: "DELETE",
+				contentType: "application/json",
+				success: function(res){
+					alert("Producto borrado correctamente");
+					$("#txtBuscar").text("");
+					buscar();
+
+					},
+				error: function(res){
+					alert(JSON.stringify(res));
+					}
+
+
+				}
+			);
+
+
+
+
+}
+
 function buscar(){
 	var tx=$("#txtBuscar").val();
+	if(tx=="")
+		tx="NoBuscoNada";
 	var url="producto/buscar/"+tx;	
 
 	$.get(url,function(res){
@@ -49,8 +82,11 @@ function buscar(){
 			h+="<td><a href='detalle.html?id="+
 					res[i].idProducto+"'>Detalle</a>";
 			h+="<a href='#' onclick='evento("+
-				res[i].idProducto+")'>Detalle ajax</a></td>";
-			h+="</tr>";	
+				res[i].idProducto+")'>Detalle ajax</a>";
+			h+="<a href='#' onclick='borrar("+
+				res[i].idProducto+")'>Borrar</a></td>";
+				
+		    h+="</tr>";	
 			tabla.append(h);
 			}
 
