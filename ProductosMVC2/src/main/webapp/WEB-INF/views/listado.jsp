@@ -15,6 +15,8 @@
 Buscar:<input type="text" id="txtBuscar" 
 				placeholder="Pon tu busqueda">
 	   <input type="button" id="btnBuscar" value="buscar" onclick="buscar()"> 
+<br />
+<a href="altaProducto.html">Añadir Productos</a>
 <table id="tblDatos">
 <c:forEach items="${productos }" var="producto">
  <tr>

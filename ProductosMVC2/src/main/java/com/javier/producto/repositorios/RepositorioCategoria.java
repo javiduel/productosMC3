@@ -1,20 +1,27 @@
 package com.javier.producto.repositorios;
 
-import org.hibernate.Hibernate;
+
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.javier.producto.modelo.TiendaCategoria;
 
 
 public class RepositorioCategoria extends Repositorio<TiendaCategoria> {
-	@Override
-	public TiendaCategoria get(Class<TiendaCategoria> tipo, int id) {
-		// TODO Auto-generated method stub
-		TiendaCategoria e= super.get(tipo, id);
+	public Map<Integer, String> getMapaOptions(){
 
-		//Hibernate.initialize(e.getTiendaProducto());
-		
+		List<TiendaCategoria> l=get(TiendaCategoria.class);
+		Map<Integer, String> mapa=new HashMap<Integer, String>();
 
-		return e;
+		for (TiendaCategoria categoria : l) {
+
+			mapa.put(categoria.getIdCategoria(),
+					categoria.getNombre());
+		}
+
+		return mapa;
 	}
 
 

@@ -40,7 +40,7 @@ public class ProductoViewForm {
         return producto;
 	}
 	public void fromTiendaProducto(TiendaProducto producto){
-		setIdProducto(producto.getIdProducto());
+		setIdproducto(producto.getIdProducto());
 	    setNombre(producto.getNombre());
 	    setDescripcion(producto.getDescripcion());
 	    setExistencias(producto.getExistencias());
@@ -49,12 +49,6 @@ public class ProductoViewForm {
 	    
 	}
 
-	
-	
-	
-	
-	
-	
 	
 	
 	public Integer getIdproducto() {
