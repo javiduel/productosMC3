@@ -9,6 +9,7 @@
 <body>
 Nombre: ${producto.nombre}<br/>
 Precio: ${producto.precio}<br/>
+Descripcion:${producto.descripcion}<br/>
 Existencias: ${producto.existencias}<br/>
 Categoria: ${producto.tiendaCategoria.nombre}<br/>
 </body>

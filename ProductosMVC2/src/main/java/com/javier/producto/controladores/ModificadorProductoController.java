@@ -28,7 +28,7 @@ public class ModificadorProductoController {
      RepositorioCategoria daoCategoria;
      
      @RequestMapping(value="/{id}",method=RequestMethod.GET)
- 	public String alta(ModelMap modelo, @PathVariable int id){
+ 	public String modificar(ModelMap modelo, @PathVariable int id){
 
     	 TiendaProducto pro=daoProducto.get(TiendaProducto.class, id); 		
     	 ProductoViewForm producto=new ProductoViewForm();

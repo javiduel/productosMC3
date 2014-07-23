@@ -24,7 +24,7 @@ Buscar:<input type="text" id="txtBuscar"
    <td>${producto.precio }</td>
   <td><a href="detalle.html?id=${producto.idProducto}"> Ver detalle</a></td>
   <td><a href="#" id="lnkDetalle" onclick="evento(${producto.idProducto})"> Detalle Ajax</a></td>
-  <td><a href="modificarProducto.html?id=${producto.idProducto}"> Modificar</a></td>
+  <td><a href="modificarProducto.html/${producto.idProducto}"> Modificar</a></td>
   <td><a href="#" id="lnkBorrar" onclick="borrar(${producto.idProducto})">Borrar</a></td>
   </tr>
    </c:forEach>

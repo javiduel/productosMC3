@@ -4,7 +4,7 @@ import com.javier.producto.modelo.TiendaCategoria;
 import com.javier.producto.modelo.TiendaProducto;
 
 public class ProductoViewForm {
-     private Integer idproducto;
+     private Integer idProducto;
      private String nombre;
      private String descripcion;
      private Integer existencias;
@@ -13,11 +13,11 @@ public class ProductoViewForm {
 	public ProductoViewForm() {
 		
 	}
-	public ProductoViewForm(Integer idproducto, String nombre,
+	public ProductoViewForm(Integer idProducto, String nombre,
 			String descripcion, Integer existencias, double precio,
 			Integer idCategoria) {
 		
-		this.idproducto = idproducto;
+		this.idProducto = idProducto;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.existencias = existencias;
@@ -27,7 +27,7 @@ public class ProductoViewForm {
 	
 	public TiendaProducto getTiendaProducto(){
 		TiendaProducto producto=new TiendaProducto();
-		producto.setIdProducto(idproducto);
+		producto.setIdProducto(idProducto);
         producto.setNombre(nombre);
         producto.setDescripcion(descripcion);
 	    producto.setExistencias(existencias);
@@ -40,7 +40,7 @@ public class ProductoViewForm {
         return producto;
 	}
 	public void fromTiendaProducto(TiendaProducto producto){
-		setIdproducto(producto.getIdProducto());
+		setIdProducto(producto.getIdProducto());
 	    setNombre(producto.getNombre());
 	    setDescripcion(producto.getDescripcion());
 	    setExistencias(producto.getExistencias());
@@ -51,11 +51,11 @@ public class ProductoViewForm {
 
 	
 	
-	public Integer getIdproducto() {
-		return idproducto;
+	public Integer getIdProducto() {
+		return idProducto;
 	}
-	public void setIdproducto(Integer idproducto) {
-		this.idproducto = idproducto;
+	public void setIdProducto(Integer idProducto) {
+		this.idProducto = idProducto;
 	}
 	public String getNombre() {
 		return nombre;
